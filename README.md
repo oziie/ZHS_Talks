@@ -3,9 +3,7 @@
 
 This repository includes some files that used in meeting series for demo works.
 
-      <center><img src="http://www.thestartuphero.com/zerohero.png"></center>
-      <center>This is an image</center>
-
+->![Zero_to_Hero](http://www.thestartuphero.com/zerohero.png)<-
 
 
 
