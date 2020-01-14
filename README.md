@@ -3,7 +3,11 @@
 
 This repository includes some files that used in meeting series for demo works.
 
-                    ![Zero_to_Hero](http://www.thestartuphero.com/zerohero.png)
+<table align="center"><tr><td align="center" width="9999">
+<img src="http://www.thestartuphero.com/zerohero.png" align="center" width="150" alt="Project icon">
+
+
+
 
 
 
