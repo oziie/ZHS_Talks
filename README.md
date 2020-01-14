@@ -4,7 +4,7 @@
 This repository includes some files that used in meeting series for demo works.
 
 <table align="center"><tr><td align="center" width="9999">
-<img src="http://www.thestartuphero.com/zerohero.png" align="center" width="500" alt="Project icon">
+<img src="http://www.thestartuphero.com/zerohero.png" align="center" width="350" alt="Project icon">
 
 
 
