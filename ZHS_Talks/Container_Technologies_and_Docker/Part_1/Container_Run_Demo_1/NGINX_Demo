@@ -1,0 +1,79 @@
+
+--> Run NGINX container:
+
+  docker container run -P -d nginx
+
+    (If there is no nginx image, firstly will pull from the Dockerhub then container will run.)
+
+    ""-d= If we want to run this container in background and work some command in it.
+    "" -P= In this situation, this flag will map it to all reports to a random port number. (Dont needed actually.)
+           Used to publish all exposed ports to random ports.
+
+    *** If we want to specify port number, we need to use "HOST_PORT" and "CONTAINER_PORT".
+
+
+    *** If we just run this docker command without any flag, we will just stuck in the command prompt because container still running in foreground.
+
+    docker container run nginx
+
+--> See more about container:
+
+  docker inspect $CONTAINER_ID "OR" $CONTAINER_NAME
+
+
+--> We can attach container for STDOUT with this command.
+
+  docker attach $CONTAINER_ID "OR" $CONTAINER_NAME
+
+
+--> With "docker attach" we will see nothing because there is no traffic. So, go and make traffic with "curl" in another tab.
+    Then go back to the attach tab.
+
+
+(We can find the $PRIVATE_IP_THAT_FOUND_WITH_INSPECT for container with "docker inspect" command in "NetworkSettings" section which is part of the output.)
+
+  curl http://$PRIVATE_IP_THAT_FOUND_WITH_INSPECT
+
+            <!DOCTYPE html>
+          <html>
+          <head>
+          <title>Welcome to nginx!</title>
+          <style>
+          body {
+              width: 35em;
+              margin: 0 auto;
+              font-family: Tahoma, Verdana, Arial, sans-serif;
+          }
+          </style>
+          </head>
+          <body>
+          <h1>Welcome to nginx!</h1>
+          <p>If you see this page, the nginx web server is successfully installed and
+          working. Further configuration is required.</p>
+
+          <p>For online documentation and support please refer to
+          <a href="http://nginx.org/">nginx.org</a>.<br/>
+          Commercial support is available at
+          <a href="http://nginx.com/">nginx.com</a>.</p>
+
+          <p><em>Thank you for using nginx.</em></p>
+          </body>
+          </html>
+
+    [cloud_user@mubilal3c ~]$ docker container attach cfef0ee37336
+
+       172.17.0.1 - - [15/Jan/2020:11:28:06 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.29.0" "-"
+
+
+
+ --> We can run specific command in a container with this command.
+     For example, /bin/bash. With these, we will get the prompt of container.
+
+    (-it= “I” for interractive.Attach container’s STDIN and “t” for stands for TTY. Allocate a pseudo-TTY)
+
+
+  docker container exec -it $CONTAINER_ID "OR" $CONTAINER_NAME /bin/bash
+
+
+    (For NGINX, in the “/usr/share/nginx/html/” directory, we have default html files.)
+    (Also, the “index.html” file is the our default NGINX home page.)

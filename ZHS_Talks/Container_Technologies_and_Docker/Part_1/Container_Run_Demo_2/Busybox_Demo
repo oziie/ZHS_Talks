@@ -1,0 +1,8 @@
+--> Run busybox container:
+
+  docker container run -it busybox   (With this we login the command prompt of container.)
+
+  If we run the below command, container just running and stop:
+
+    docker container run busybox
+    

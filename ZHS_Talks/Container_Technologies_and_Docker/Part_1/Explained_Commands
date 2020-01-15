@@ -1,0 +1,99 @@
+##### DOCKERFILE #####
+
+Will write how to prepare and build Dockerfile
+
+
+
+# DOCKER IMAGES #
+
+
+--> Show current docker images:
+
+  docker images ls
+
+
+--> We can tag the images:
+
+    docker tag $IMAGE_ID  (for example nokia/zhs:v1)
+
+
+--> To pull or push images:
+
+  docker pull $IMAGE_NAME (for example, nokia/zhs:v1)
+  docker push $IMAGE_NAME
+
+
+--> See the what includes image. We can see exactly the Dockerfile contents of image.
+
+  docker inspect $IMAG_NUMBER
+
+
+
+
+##### CONTAINERS #####
+
+
+--> Run a container:
+
+  docker container run -d --name $CONTAINER_NAME -p $HOST_PORT:$CONTAINER_PORT $IMAGE_NAME:$TAG
+  docker container run -it --name $CONTAINER_NAME
+
+    ( -it = "i" for interractive and "t" stands for TTY.)
+    (Differences between -p and -P) (Differences between $HOST_PORT and $CONTAINER_PORT)
+
+
+
+--> To see all containers(working + stopped)
+
+  docker container ls -a
+
+
+--> To see just running containers
+
+  docker container ls
+
+
+--> To see containers resource stats:
+
+  docker container stats $CONTAINER_NAME "OR" $CONTAINER_ID
+
+
+--> To see detailed STDIN or STDOUT of containers:
+
+  docker container attach $CONTAINER_ID "OR" $CONTAINER_NAME
+  (search what does process consist of... STDIN, STDOUT, STDERR)
+
+
+--> To run a command in the container, for the container:
+
+  docker container exec -it $CONTAINER_ID "OR" $CONTAINER_NAME /bin/bash
+
+      (In here our command is "/bin/bash". Thus enables us a command prompt. For example busybox container)
+
+
+ --> We can pause, stop or start containers:
+
+  docker container pause $CONTAINER_ID "OR" $CONTAINER_NAME
+  docker container unpause $CONTAINER_ID "OR" $CONTAINER_NAME
+  docker container stop  $CONTAINER_ID "OR" $CONTAINER_NAME
+  docker container start $CONTAINER_ID "OR" $CONTAINER_NAME
+
+
+ --> Remove container:
+
+ (Before the remove stop the container)
+
+  docker container stop $CONTAINER_ID "OR" $CONTAINER_NAME
+  docker container rm -f $CONTAINER_ID "OR" $CONTAINER_NAME
+
+ --> Remove "all" stopped containers:
+
+  docker container stop $(docker ps -a -q)
+  docker container prune
+
+  NOTE= "-f" flag for force the CLI.
+
+            "OR"
+
+  docker container stop $(docker ps -a -q)
+  docker container rm $(docker ps -a -q)
