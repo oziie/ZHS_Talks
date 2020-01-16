@@ -1,5 +1,5 @@
 # ZHS_Talks
-"ZHS(Zero to Hero) Talks" is a series of meetings where I share my knowledge and experience to help my teammates, explaining DevOps topics and how they can be applied to our work at Nokia.
+"ZHS(Zero to Hero Series) Talks" is a series of meetings where I share my knowledge and experience to help my teammates, explaining DevOps topics and how they can be applied to our work at Nokia.
 
 This repository includes some files that used in meeting series for demo works.
 
