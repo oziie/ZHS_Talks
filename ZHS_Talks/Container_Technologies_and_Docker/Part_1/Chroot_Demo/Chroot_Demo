@@ -1,0 +1,31 @@
+mkdir /home/arkham
+mkdir /home/arkham/{bin,lib64}
+groupadd inmates (create group called “inmates”)
+useradd -g inmates quinn (create and add user “quinn” to group “inmates”)
+groups quinn
+cd /home/arkham/bin/
+cp /usr/bin/ls .
+cp /usr/bin/bash .
+ldd /bin/bash
+cp -v $LIBRARIES_FOR_ls
+ldd /bin/ls (to see which libraries using for "ls" command)
+cp -v $LIBRARIES_FOR_ls
+pwd (we are in "/home/arkham")
+vim escpae.txt
+chroot /home/arkham/ /bin/bash (After that we are in chroot environment)
+vi /etc/ssh/sshd_config (Edit "sshd_config" file to give permision to connect with SSH for user.)
+
+          Match group inmates
+            ChrootDirectory /home/arkham
+            X11Forwaring no
+            AllowTcpForwarding no
+
+systemctl restart sshd
+passwd quinn
+ssh quinn@$IP (connect with SSH to the chroot environment)
+
+
+
+(Escaping linux chroot:
+https://filippo.io/escaping-a-chroot-jail-slash-1/
+https://www.cybrary.it/0p3n/escaping-linux-chroot-jail/ )

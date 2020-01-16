@@ -89,6 +89,9 @@ Will write how to prepare and build Dockerfile
  --> Remove "all" stopped containers:
 
   docker container stop $(docker ps -a -q)
+
+            "OR"
+
   docker container prune
 
   NOTE= "-f" flag for force the CLI.
