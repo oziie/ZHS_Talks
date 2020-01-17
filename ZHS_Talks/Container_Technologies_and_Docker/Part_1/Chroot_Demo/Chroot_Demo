@@ -1,28 +1,53 @@
-mkdir /home/arkham
-mkdir /home/arkham/{bin,lib64}
-groupadd inmates (create group called “inmates”)
-useradd -g inmates quinn (create and add user “quinn” to group “inmates”)
-groups quinn
-cd /home/arkham/bin/
-cp /usr/bin/ls .
-cp /usr/bin/bash .
-ldd /bin/bash
-cp -v $LIBRARIES_FOR_ls
-ldd /bin/ls (to see which libraries using for "ls" command)
-cp -v $LIBRARIES_FOR_ls
-pwd (we are in "/home/arkham")
-vim escpae.txt
-chroot /home/arkham/ /bin/bash (After that we are in chroot environment)
-vi /etc/ssh/sshd_config (Edit "sshd_config" file to give permision to connect with SSH for user.)
+--> Create folders
+
+    mkdir /home/arkham
+    mkdir /home/arkham/{bin,lib64}
+
+--> Create group called “inmates”
+
+    groupadd inmates
+
+--> Create and add user “quinn” to group “inmates”
+
+    useradd -g inmates quinn
+    groups quinn
+
+--> Coppy all things that will use in chrooted environment
+
+    cd /home/arkham/bin/
+    cp /usr/bin/ls .
+    cp /usr/bin/bash .
+
+--> To see which libraries using for "ls" "/bin/bash" command. Actually, you can find and copy whatever you want.
+
+    pwd (we are in "/home/arkham")
+    ldd /bin/bash
+    cp -v $LIBRARIES_FOR_ls
+    ldd /bin/ls (to see which libraries using for "ls" command)
+    cp -v $LIBRARIES_FOR_ls
+
+--> Write random escape message.
+
+    vim escpae.txt
+
+--> After that we are in chroot environment
+
+    chroot /home/arkham/ /bin/bash ()
+
+--> Edit "sshd_config" file to give permision to connect with SSH for user.
+
+    vi /etc/ssh/sshd_config ()
 
           Match group inmates
             ChrootDirectory /home/arkham
             X11Forwaring no
             AllowTcpForwarding no
 
-systemctl restart sshd
-passwd quinn
-ssh quinn@$IP (connect with SSH to the chroot environment)
+--> Restart the sshd.service and try to login with our user quinn. First of all, identify a password
+
+    systemctl restart sshd
+    passwd quinn
+    ssh quinn@$IP (connect with SSH to the chroot environment)
 
 
 
