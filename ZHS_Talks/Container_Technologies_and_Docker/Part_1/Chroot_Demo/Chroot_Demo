@@ -32,11 +32,11 @@
 
 --> After that we are in chroot environment
 
-    chroot /home/arkham/ /bin/bash ()
+    chroot /home/arkham/ /bin/bash
 
 --> Edit "sshd_config" file to give permision to connect with SSH for user.
 
-    vi /etc/ssh/sshd_config ()
+    vi /etc/ssh/sshd_config
 
           Match group inmates
             ChrootDirectory /home/arkham
