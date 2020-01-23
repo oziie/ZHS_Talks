@@ -22,7 +22,7 @@
 
     pwd (we are in "/home/arkham")
     ldd /bin/bash
-    cp -v $LIBRARIES_FOR_ls
+    cp -v $LIBRARIES_FOR_bash
     ldd /bin/ls (to see which libraries using for "ls" command)
     cp -v $LIBRARIES_FOR_ls
 
