@@ -30,7 +30,7 @@ Will write how to prepare and build Dockerfile
 
 
 
-##### CONTAINERS #####
+##### CONTAINERS RUN-STOP-REMOVE #####
 
 
 --> Run a container:
@@ -57,6 +57,9 @@ Will write how to prepare and build Dockerfile
 
   docker container stats $CONTAINER_NAME "OR" $CONTAINER_ID
 
+--> To see logs about specific container:
+
+  docker logs $CONTAINER_ID OR $CONTAINER_NAME
 
 --> To see detailed STDIN or STDOUT of containers:
 
@@ -100,3 +103,46 @@ Will write how to prepare and build Dockerfile
 
   docker container stop $(docker ps -a -q)
   docker container rm $(docker ps -a -q)
+
+
+
+  ##### CONTAINER RUN COMMANDS #####
+
+
+
+
+
+
+
+
+
+  #### OTHER BEST COMMAND LINES ####
+
+
+   --> If we want to create new image from existing container''s changes, we need to commit from this container to create new image.
+       Thus, we can create a new container easily from this new image. Note that again, we create this new container from old one with
+       existing changes.
+
+
+      # Commit old docker container.
+
+          docker commit $CONTAINER_ID OR $CONTAINER_NAME $NEW_IMAGE_NAME
+
+     # Run new container with new image.
+
+          docker run ....
+
+    (# If we want to add volume to the new container)
+
+          docker run -it -v "$PWD/dir1":/dir1 -v "$PWD/dir2":/dir2 $NEW_IMAGE_NAME /bin/bash
+
+
+   --> Clean all things...
+
+      # Cleans up dangling images, containers, volumes, and networks (ie, not associated with a container)
+
+          docker system prune
+
+      # Additionally remove any stopped containers and all unused images (not just dangling images)
+
+          docker system prune -a
