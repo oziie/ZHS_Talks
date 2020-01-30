@@ -1,9 +1,3 @@
-##### DOCKERFILE #####
-
-Will write how to prepare and build Dockerfile
-
-
-
 # DOCKER IMAGES #
 
 
@@ -25,7 +19,7 @@ Will write how to prepare and build Dockerfile
 
 --> See the what includes image. We can see exactly the Dockerfile contents of image.
 
-  docker inspect $IMAG_NUMBER
+  docker inspect $IMAGE_NUMBER
 
 
 
@@ -103,17 +97,6 @@ Will write how to prepare and build Dockerfile
 
   docker container stop $(docker ps -a -q)
   docker container rm $(docker ps -a -q)
-
-
-
-  ##### CONTAINER RUN COMMANDS #####
-
-
-
-
-
-
-
 
 
   #### OTHER BEST COMMAND LINES ####
