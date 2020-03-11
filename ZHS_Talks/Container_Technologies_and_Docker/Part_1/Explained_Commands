@@ -99,6 +99,26 @@
   docker container rm $(docker ps -a -q)
 
 
+### DOCKER LOGS
+
+--> There are two option to retrieve logs:
+
+    --> If the container is not a service:
+
+            docker logs $CONTAINER_ID or $CONTAINER_NAME
+
+    --> If the container is a service:
+
+            docker service logs $SERVICE
+
+
+### DOCKER NETWORKING
+
+--> 
+
+
+
+
   #### OTHER BEST COMMAND LINES ####
 
 
