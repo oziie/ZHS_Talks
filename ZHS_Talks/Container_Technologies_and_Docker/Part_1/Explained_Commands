@@ -119,7 +119,8 @@
 
 
 
-  #### OTHER BEST COMMAND LINES ####
+
+#### OTHER BEST COMMAND LINES ####
 
 
    --> If we want to create new image from existing container''s changes, we need to commit from this container to create new image.
@@ -142,7 +143,8 @@
 
    --> Clean all things...
 
-      # Cleans up dangling images, containers, volumes, and networks (ie, not associated with a container)
+      # Cleans up dangling images, containers, volumes, and networks 
+      #(ie, not associated with a container)
 
           docker system prune
 
