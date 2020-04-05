@@ -14,6 +14,10 @@
 --> To pull or push images:
 
   docker pull $IMAGE_NAME (for example, nokia/zhs:v1)
+
+  
+  docker tag ad9227821e4b oziie/example-site:v1
+  docker push oziie/example-site
   docker push $IMAGE_NAME
 
 
@@ -114,9 +118,22 @@
 
 ### DOCKER NETWORKING
 
---> 
+--> Show created networks
 
+            docker network ls
 
+--> Examine one of the created networks
+
+            docker network inspect $NETWORK_NAME
+
+--> Create Docker network:
+
+            docker network create –subnet 10.1.0.0/16 –gateway 10.1.0.1  \
+            --ip-range=10.1.4.0/24 --driver=bridge --label=host4network br04
+
+--> Show resource usage for running containers:
+
+            docker ps -q | xargs  docker stats --no-stream
 
 
 
@@ -136,14 +153,14 @@
 
           docker run ....
 
-    (# If we want to add volume to the new container)
+    # If we want to add volume to the new container)
 
           docker run -it -v "$PWD/dir1":/dir1 -v "$PWD/dir2":/dir2 $NEW_IMAGE_NAME /bin/bash
 
 
    --> Clean all things...
 
-      # Cleans up dangling images, containers, volumes, and networks 
+      # Cleans up dangling images, containers, volumes, and networks
       #(ie, not associated with a container)
 
           docker system prune
